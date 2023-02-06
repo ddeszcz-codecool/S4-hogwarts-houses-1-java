@@ -1,4 +1,4 @@
-package com.codecool.hogwartshouses.model.types;
+package com.codecool.hogwartshouses.models.types;
 
 public enum PetType {
     CAT,

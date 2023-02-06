@@ -1,6 +1,6 @@
-package com.codecool.hogwartshouses.service;
+package com.codecool.hogwartshouses.services;
 
-import com.codecool.hogwartshouses.service.DAO.RoomDAO;
+import com.codecool.hogwartshouses.services.DAO.RoomDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
