@@ -1,13 +1,24 @@
 package com.codecool.hogwartshouses.services;
 
+import com.codecool.hogwartshouses.entities.Room;
+import com.codecool.hogwartshouses.repositories.RoomRepository;
 import com.codecool.hogwartshouses.services.DAO.RoomDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class RoomService {
 
-    @Autowired
-    private RoomDAO roomDAO;
+    private final RoomRepository roomRepository;
 
+    public RoomService(RoomRepository roomRepository) {
+        this.roomRepository = roomRepository;
+    }
+
+    public List<Room> getAllRooms(){return  roomRepository.findAll();}
+
+    public void addLesson(Room room) {roomRepository.saveAndFlush(room);
+    }
 }

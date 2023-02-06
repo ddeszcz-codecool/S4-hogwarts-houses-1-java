@@ -1,16 +1,13 @@
-package com.codecool.hogwartshouses.models.entities;
+package com.codecool.hogwartshouses.entities;
 
-import com.codecool.hogwartshouses.models.types.HouseType;
-import com.codecool.hogwartshouses.models.types.PetType;
+import com.codecool.hogwartshouses.entities.types.HouseType;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-import java.util.List;
+import lombok.*;
 
 
+@Builder
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -18,12 +15,17 @@ import java.util.List;
 public class Room {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "room_id", nullable = false)
     private Long id;
 
-
+    @Column(name = "houseType")
     private HouseType houseType;
+
+    @Column(name = "capacity")
+    private int roomCapacity;
+
+
 
     public Long getId() {
         return id;

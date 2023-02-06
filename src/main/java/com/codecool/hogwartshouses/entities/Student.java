@@ -1,21 +1,18 @@
-package com.codecool.hogwartshouses.models.entities;
+package com.codecool.hogwartshouses.entities;
 
-import com.codecool.hogwartshouses.models.types.PetType;
+import com.codecool.hogwartshouses.entities.types.PetType;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
 import lombok.NoArgsConstructor;
 
 
-@AllArgsConstructor
-@NoArgsConstructor
+
 @Entity
 @Table(name = "students")
 public class Student {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "student_id", nullable = false)
     private Long id;
 
