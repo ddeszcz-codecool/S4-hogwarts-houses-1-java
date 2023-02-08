@@ -8,9 +8,21 @@ import java.util.Set;
 @Repository
 public class RoomMemory implements RoomDAO {
 
-    private Set<Room> rooms;
+    private final Set<Room> rooms;
 
     public RoomMemory(Set<Room> rooms) {
         this.rooms = rooms;
+    }
+
+
+    @Override
+    public Set<Room> getAllRooms() {
+        return this.rooms;
+    }
+
+    @Override
+    public void addRoom(Room room) {
+        this.rooms.add(room);
+
     }
 }
