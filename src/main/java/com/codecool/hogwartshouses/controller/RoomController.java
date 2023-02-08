@@ -6,6 +6,8 @@ import com.codecool.hogwartshouses.service.RoomService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.Set;
@@ -26,5 +28,12 @@ public class RoomController {
         Set<Room> rooms = roomService.getAllRooms();
         model.addAttribute("rooms", rooms);
         return "rooms";
+    }
+
+
+    @PostMapping
+    public String addRoom(@RequestBody Room room){
+        roomService.addRoom(room);
+        return "redirect:";
     }
 }

@@ -19,4 +19,7 @@ public class RoomService {
     public Set<Room> getAllRooms() {
         return roomDAO.getAllRooms();
     }
+
+    public void addRoom(Room room) {roomDAO.addRoom(room);
+    }
 }
