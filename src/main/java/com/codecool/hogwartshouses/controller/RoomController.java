@@ -32,7 +32,10 @@ public class RoomController {
 
 
     @PostMapping
-    public String addRoom(@RequestBody Room room){
+    public String addRoom(@RequestBody Room room) {
+        if (room.getCapacity() < 2) {
+            throw new IllegalArgumentException("Room must have minimum capacity of two persons");
+        }
         roomService.addRoom(room);
         return "redirect:";
     }
