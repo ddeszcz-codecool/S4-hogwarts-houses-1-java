@@ -1,25 +1,31 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
-  <title>Rooms</title>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link th:href="@{/css/rooms.css}" rel="stylesheet" />
+    <title>Rooms</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link th:href="@{/css/general.css}" rel="stylesheet"/>
 </head>
-<body th:style="'background: url(/img/background.jpg) no-repeat center center fixed;'">
+<body>
 <table>
-  <tr>
-    <th>ID</th>
-    <th>Capacity</th>
-    <th>House</th>
-    <th>Room Number</th>
-  </tr>
-  <tr th:each="room : ${rooms}">
-    <td th:text="${room.getId()}"></td>
-    <td th:text="${room.getCapacity()}"></td>
-    <td th:text="${room.getHouseType()}"></td>
-    <td th:text="${room.getRoomName()}"></td>
+    <tr>
+        <th>ID</th>
+        <th>Capacity</th>
+        <th>House</th>
+        <th>Room Number</th>
+    </tr>
+    <tr th:each="room : ${rooms}">
+        <td th:text="${room.getId()}"></td>
+        <td th:text="${room.getCapacity()}"></td>
+        <td th:text="${room.getHouseType()}"></td>
+        <td th:text="${room.getRoomName()}"></td>
+    </tr>
+    <tr th:if="${room}">
+        <td th:text="${room.getId()}"></td>
+        <td th:text="${room.getCapacity()}"></td>
+        <td th:text="${room.getHouseType()}"></td>
+        <td th:text="${room.getRoomName()}"></td>
+    </tr>
 
-  </tr>
 </table>
 </body>
 </html>

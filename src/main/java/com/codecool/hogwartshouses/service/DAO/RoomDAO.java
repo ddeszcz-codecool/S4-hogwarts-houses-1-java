@@ -9,4 +9,5 @@ public interface RoomDAO {
     Set<Room> getAllRooms();
     void addRoom(Room room);
 
+    Room getRoomById(Long id);
 }

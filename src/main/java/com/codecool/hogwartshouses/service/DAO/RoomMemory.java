@@ -25,4 +25,12 @@ public class RoomMemory implements RoomDAO {
         this.rooms.add(room);
 
     }
+
+    @Override
+    public Room getRoomById(Long id) {
+        return rooms.stream()
+                .filter(room -> id.equals(room.getId()))
+                .findAny()
+                .orElse(null);
+    }
 }
