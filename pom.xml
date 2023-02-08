@@ -5,103 +5,26 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.0.2</version>
+        <version>2.4.3</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>io.spring.demo</groupId>
-    <artifactId>jpa</artifactId>
+    <groupId>com.codecool</groupId>
+    <artifactId>hogwarts-houses</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>4JpaBuddy</name>
-    <description>4JpaBuddy</description>
+    <name>hogwarts-houses</name>
+    <description>Sprint1</description>
     <properties>
-        <java.version>17</java.version>
-        <org.mapstruct.version>1.4.2.Final</org.mapstruct.version>
-
-
+        <java.version>11</java.version>
     </properties>
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-validation</artifactId>
-
-
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>org.flywaydb</groupId>-->
-<!--            <artifactId>flyway-core</artifactId>-->
-<!--        </dependency>-->
-        <dependency>
-            <groupId>org.postgresql</groupId>
-            <artifactId>postgresql</artifactId>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.mapstruct</groupId>
-            <artifactId>mapstruct</artifactId>
-            <version>1.4.2.Final</version>
-        </dependency>
-
-
-        <dependency>
-            <groupId>org.springdoc</groupId>
-            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
-            <version>2.0.0</version>
-        </dependency>
-
-
-
-
-        <dependency>
-            <groupId>org.yaml</groupId>
-            <artifactId>snakeyaml</artifactId>
-            <version>1.33</version>
-
-            <!--            SnakeYaml vulnerability was manifesting itself due to SnakeYaml being a transitive dependency of <artifactId>spring-boot-starter-validation at this stage we are not sure whether SnakeYaml will be needed therefore instead of excluding it from <artifactId>spring-boot-starter-validation we created direct SnakeYaml dependency to better monitor the problem and to simplify the updated when SnakeYaml 2.0 is available. Direct dependencies always take precedence over transitive dependencies.  -->
-            <!--            SnakeYAML 1.33 still has a vulnerability. Since that is the last version (SnakeYAML 2.x is not compatible with 1.x), that's something you can't discard until the SnakeYAML team fixes that.-->
-            <!--            https://stackoverflow.com/questions/74781733/vulnerable-dependency-mavenorg-yamlsnakeyaml-->
-
-
-            <!--            <exclusions>-->
-            <!--                <exclusion>-->
-            <!--                    <groupId>org.yaml</groupId>-->
-            <!--                    <artifactId>snakeyaml</artifactId>-->
-
-            <!--                </exclusion>-->
-            <!--            </exclusions>-->
-        </dependency>
-
-        <!--Solution for MapStructure and Lombok incompatibility to be considered after main design is finalized.-->
-        <!--        https://stackoverflow.com/questions/47676369/mapstruct-and-lombok-not-working-together-->
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.24</version>
-            <scope>provided</scope>
-        </dependency>
-
-
-
-        <!--Dependencies from Hogwarts Houses (thymeleaf and devtools, spring-data-commons)-->
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-thymeleaf</artifactId>
-        </dependency>
-
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -109,51 +32,30 @@
             <scope>runtime</scope>
             <optional>true</optional>
         </dependency>
-
-        <!--        <dependency>-->
-        <!--            <groupId>org.springframework.data</groupId>-->
-        <!--            <artifactId>spring-data-commons</artifactId>-->
-        <!--            <version>2.3.5.RELEASE</version>-->
-        <!--        </dependency>-->
-
-        <!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-commons -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
         <dependency>
             <groupId>org.springframework.data</groupId>
             <artifactId>spring-data-commons</artifactId>
-            <version>3.0.1</version>
+            <version>2.3.5.RELEASE</version>
         </dependency>
-
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.20</version>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
+
     <build>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
-
-
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.1</version>
-                <configuration>
-                    <source>17</source> <!-- depending on your project -->
-                    <target>17</target> <!-- depending on your project -->
-                    <annotationProcessorPaths>
-                        <path>
-                            <groupId>org.mapstruct</groupId>
-                            <artifactId>mapstruct-processor</artifactId>
-                            <version>1.4.2.Final</version>
-                        </path>
-                        <!-- other annotation processors -->
-                    </annotationProcessorPaths>
-                </configuration>
-            </plugin>
-
-
-
-
         </plugins>
     </build>
 
