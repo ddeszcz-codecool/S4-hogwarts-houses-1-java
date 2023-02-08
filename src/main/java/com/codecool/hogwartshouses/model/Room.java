@@ -8,8 +8,7 @@ import jakarta.persistence.Table;
 import lombok.*;
 import org.springframework.data.annotation.Id;
 
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @Builder
 @AllArgsConstructor
@@ -26,6 +25,9 @@ public class Room {
 
     @Column(name = "capacity")
     private int capacity;
+
+    @Column(name = "room_name")
+    private String roomName;
 
 
 }
