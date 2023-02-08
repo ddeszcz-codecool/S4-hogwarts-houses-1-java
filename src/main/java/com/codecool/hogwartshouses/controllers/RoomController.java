@@ -17,13 +17,7 @@ public class RoomController {
         this.roomService = roomService;
     }
 
-    @GetMapping
-    public List<Room> getAllRooms(){return roomService.getAllRooms();}
 
-    @PostMapping()
-    public void addRoom(@RequestBody Room room) {
-        roomService.addLesson(room);
-    }
 
     
 }

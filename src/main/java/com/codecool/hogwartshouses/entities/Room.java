@@ -1,45 +1,24 @@
 package com.codecool.hogwartshouses.entities;
 
-import com.codecool.hogwartshouses.entities.types.HouseType;
-import jakarta.persistence.*;
+import com.codecool.hogwartshouses.data.House;
 import lombok.*;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
-@Builder
+@Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
-@Table(name = "rooms")
+@Builder
 public class Room {
-
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "room_id", nullable = false)
-    private Long id;
-
-    @Column(name = "houseType")
-    private HouseType houseType;
-
-    @Column(name = "capacity")
-    private int roomCapacity;
-
-
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public HouseType getHouseType() {
-        return houseType;
-    }
-
-    public void setHouseType(HouseType houseType) {
-        this.houseType = houseType;
-    }
+    @GeneratedValue
+    private long id;
+    private House house;
+    @OneToOne
+    private Student student;
 }
