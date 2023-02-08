@@ -10,4 +10,6 @@ public interface RoomDAO {
     void addRoom(Room room);
 
     Room getRoomById(Long id);
+
+    void deleteRoomById(Long id);
 }

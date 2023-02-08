@@ -43,4 +43,10 @@ public class RoomController {
         model.addAttribute("room", room);
         return "rooms";
     }
+
+    @DeleteMapping("/{room_id}")
+    public String deleteRoom(@PathVariable("room_id") Long id) {
+        roomService.deleteRoomById(id);
+        return "redirect:";
+    }
 }
