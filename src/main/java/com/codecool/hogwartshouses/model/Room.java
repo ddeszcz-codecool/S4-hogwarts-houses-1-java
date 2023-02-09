@@ -1,10 +1,7 @@
 package com.codecool.hogwartshouses.model;
 
 import com.codecool.hogwartshouses.model.types.HouseType;
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.data.annotation.Id;
 

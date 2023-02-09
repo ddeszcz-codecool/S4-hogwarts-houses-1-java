@@ -1,8 +1,8 @@
-package com.codecool.hogwartshouses.data_sample;
+package com.codecool.hogwartshouses.database_dump;
 
 import com.codecool.hogwartshouses.model.Room;
 import com.codecool.hogwartshouses.model.types.HouseType;
-import com.codecool.hogwartshouses.service.DAO.RoomMemory;
+import com.codecool.hogwartshouses.repositories.DAO.RoomMemory;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -13,11 +13,11 @@ public class RoomCreator {
 
     public RoomCreator(RoomMemory roomMemory) {
         this.roomMemory = roomMemory;
-        initialize();
+        createRooms();
     }
 
 
-    public void initialize() {
+    public void createRooms() {
     Room roomGryffindorNumber1 = new Room(1, HouseType.GRYFFINDOR, 2, "Number 1");
     Room roomGryffindorNumber2 = new Room(2, HouseType.GRYFFINDOR, 2,"Number 2");
     Room roomHufflepuffNumber1 = new Room(3, HouseType.HUFFLEPUFF, 2, "Number 1");

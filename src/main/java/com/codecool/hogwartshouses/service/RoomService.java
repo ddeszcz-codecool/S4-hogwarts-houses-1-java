@@ -2,7 +2,7 @@ package com.codecool.hogwartshouses.service;
 
 import com.codecool.hogwartshouses.model.Room;
 import com.codecool.hogwartshouses.model.types.HouseType;
-import com.codecool.hogwartshouses.service.DAO.RoomDAO;
+import com.codecool.hogwartshouses.repositories.DAO.RoomDAO;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
