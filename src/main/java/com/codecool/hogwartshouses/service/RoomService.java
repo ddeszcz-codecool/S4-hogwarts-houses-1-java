@@ -1,6 +1,7 @@
 package com.codecool.hogwartshouses.service;
 
 import com.codecool.hogwartshouses.model.Room;
+import com.codecool.hogwartshouses.model.types.HouseType;
 import com.codecool.hogwartshouses.service.DAO.RoomDAO;
 import org.springframework.stereotype.Service;
 
@@ -29,5 +30,12 @@ public class RoomService {
 
     public void deleteRoomById(Long id) {
         roomDAO.deleteRoomById(id);
+    }
+
+    public void addNewRoom() {
+        int currentRoomsNumber = roomDAO.getAllRooms().size();
+        int room_id = currentRoomsNumber +1;
+        Room newRoom = new Room(room_id, HouseType.GRYFFINDOR, 3,"Number " + room_id);
+        roomDAO.addRoom(newRoom);
     }
 }
