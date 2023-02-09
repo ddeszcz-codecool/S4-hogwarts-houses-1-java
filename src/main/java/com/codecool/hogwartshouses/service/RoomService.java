@@ -43,4 +43,8 @@ public class RoomService {
         Room markRoomForRenovation = roomDAO.findRoomById(id);
         markRoomForRenovation.setCapacity(0);
     }
+
+    public Set<Room> getAvailableRooms() {return roomDAO.getAvailableRooms();
+
+    }
 }

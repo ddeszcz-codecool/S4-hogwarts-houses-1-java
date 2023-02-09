@@ -16,9 +16,11 @@ public class StudentCreator {
     }
 
     private void createStudents() {
-        Student hermioneGranger = new Student(101, "Hermione Granger", HouseType.GRYFFINDOR, 1);
-        Student dracoMalfoy = new Student(102, "Draco Malfoy", HouseType.SLYTHERIN, 6);
+        Student hermioneGranger = new Student(101, "Hermione Granger", HouseType.GRYFFINDOR, 1L);
+        Student hermioneGrangerTwinSister = new Student(101, "Hermione Twin Granger", HouseType.GRYFFINDOR, 1L);
+        Student dracoMalfoy = new Student(102, "Draco Malfoy", HouseType.SLYTHERIN, 6L);
         studentMemory.add(hermioneGranger);
+        studentMemory.add(hermioneGrangerTwinSister);
         studentMemory.add(dracoMalfoy);
     }
 

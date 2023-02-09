@@ -52,4 +52,12 @@ public class RoomController {
         roomService.markRoomForRenovation(id);
         return "redirect:";
     }
+
+    @GetMapping("/available")
+    public String availableRooms(Model model) {
+        Set<Room> rooms = roomService.getAvailableRooms();
+        model.addAttribute("rooms", rooms);
+        return "rooms";
+    }
+
 }

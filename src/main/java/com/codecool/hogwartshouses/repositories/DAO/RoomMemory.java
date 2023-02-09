@@ -1,19 +1,24 @@
 package com.codecool.hogwartshouses.repositories.DAO;
 
 import com.codecool.hogwartshouses.model.Room;
+import com.codecool.hogwartshouses.model.Student;
 import org.springframework.stereotype.Repository;
 
+import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Repository
 public class RoomMemory implements RoomDAO {
 
     private final Set<Room> rooms;
+    private final StudentDAO studentDAO;
 
-    public RoomMemory(Set<Room> rooms) {
+    public RoomMemory(Set<Room> rooms, StudentDAO studentDAO) {
         this.rooms = rooms;
+        this.studentDAO = studentDAO;
     }
-
 
     @Override
     public Set<Room> getAllRooms() {
@@ -48,5 +53,18 @@ public class RoomMemory implements RoomDAO {
             }
         }
         return roomToBeUpdated;
+    }
+
+    @Override
+    public Set<Room> getAvailableRooms() {
+        Set<Room> availableRooms = new HashSet<>();
+        for (Room room:rooms) {
+            int numberOfStudentsCurrentlyInRoom = List.copyOf(studentDAO.getAllStudents())
+                    .stream().filter(s -> s.getRoomIdForStudent() == room.getId()).collect(Collectors.toList()).size();
+            if(numberOfStudentsCurrentlyInRoom < room.getCapacity()){
+                availableRooms.add(room);
+            }
+        }
+        return availableRooms;
     }
 }

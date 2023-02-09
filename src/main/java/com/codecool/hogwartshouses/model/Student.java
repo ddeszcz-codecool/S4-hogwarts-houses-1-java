@@ -29,7 +29,7 @@ public class Student {
     private HouseType houseType;
 
     @Column(name = "room_id_for_student")
-    private int roomIdForStudent;
+    private Long roomIdForStudent;
 
 
 }
