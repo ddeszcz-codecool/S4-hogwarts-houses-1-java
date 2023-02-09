@@ -38,4 +38,9 @@ public class RoomService {
         Room newRoom = new Room(room_id, HouseType.GRYFFINDOR, 3,"Number " + room_id);
         roomDAO.addRoom(newRoom);
     }
+
+    public void markRoomForRenovation(Long id) {
+        Room markRoomForRenovation = roomDAO.findRoomById(id);
+        markRoomForRenovation.setCapacity(0);
+    }
 }

@@ -46,4 +46,10 @@ public class RoomController {
         roomService.deleteRoomById(id);
         return "redirect:";
     }
+
+    @PutMapping(value = "/{room_id}")
+    public String markRoomForRenovation(@PathVariable("room_id") Long id){
+        roomService.markRoomForRenovation(id);
+        return "redirect:";
+    }
 }

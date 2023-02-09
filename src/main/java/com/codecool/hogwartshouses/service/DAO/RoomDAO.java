@@ -12,4 +12,6 @@ public interface RoomDAO {
     Room getRoomById(Long id);
 
     void deleteRoomById(Long id);
+
+    Room findRoomById(Long id);
 }
