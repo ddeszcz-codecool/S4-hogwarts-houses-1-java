@@ -1,6 +1,7 @@
 package com.codecool.hogwartshouses.model;
 
 import com.codecool.hogwartshouses.model.types.HouseType;
+import com.codecool.hogwartshouses.model.types.PetType;
 import jakarta.persistence.Column;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -27,6 +28,9 @@ public class Student {
 
     @Column(name = "house_type")
     private HouseType houseType;
+
+    @Column(name = "pet_type")
+    private PetType petType;
 
     @Column(name = "room_id_for_student")
     private Long roomIdForStudent;

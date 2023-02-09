@@ -11,12 +11,14 @@
   <tr>
     <th>Student ID</th>
     <th>Student Name</th>
+    <th>Pet Type</th>
     <th>House Type</th>
     <th>Room ID</th>
   </tr>
   <tr th:each="student : ${students}">
     <td th:text="${student.getId()}"></td>
     <td th:text="${student.getName()}"></td>
+    <td th:text="${student.getPetType()}"></td>
     <td th:text="${student.getHouseType()}"></td>
     <td th:text="${student.getRoomIdForStudent()}"></td>
   </tr>

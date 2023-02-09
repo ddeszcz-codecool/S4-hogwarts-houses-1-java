@@ -16,4 +16,6 @@ public interface RoomDAO {
     Room findRoomById(Long id);
 
     Set<Room> getAvailableRooms();
+
+    Set<Room> getAvailableRoomsForRatOwners();
 }

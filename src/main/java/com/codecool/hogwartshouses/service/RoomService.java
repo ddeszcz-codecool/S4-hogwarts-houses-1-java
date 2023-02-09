@@ -21,7 +21,8 @@ public class RoomService {
         return roomDAO.getAllRooms();
     }
 
-    public void addRoom(Room room) {roomDAO.addRoom(room);
+    public void addRoom(Room room) {
+        roomDAO.addRoom(room);
     }
 
     public Room getRoomById(Long id) {
@@ -34,8 +35,8 @@ public class RoomService {
 
     public void addNewRoom() {
         int currentRoomsNumber = roomDAO.getAllRooms().size();
-        int room_id = currentRoomsNumber +1;
-        Room newRoom = new Room(room_id, HouseType.GRYFFINDOR, 3,"Number " + room_id);
+        int room_id = currentRoomsNumber + 1;
+        Room newRoom = new Room(room_id, HouseType.GRYFFINDOR, 3, "Number " + room_id);
         roomDAO.addRoom(newRoom);
     }
 
@@ -44,7 +45,11 @@ public class RoomService {
         markRoomForRenovation.setCapacity(0);
     }
 
-    public Set<Room> getAvailableRooms() {return roomDAO.getAvailableRooms();
+    public Set<Room> getAvailableRooms() {
+        return roomDAO.getAvailableRooms();
+    }
 
+    public Set<Room> getAvailableRoomsForRatOwners() {
+        return roomDAO.getAvailableRoomsForRatOwners();
     }
 }

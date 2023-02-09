@@ -2,6 +2,7 @@ package com.codecool.hogwartshouses.repositories.DAO;
 
 import com.codecool.hogwartshouses.model.Room;
 import com.codecool.hogwartshouses.model.Student;
+import com.codecool.hogwartshouses.model.types.PetType;
 import org.springframework.stereotype.Repository;
 
 import java.util.HashSet;
@@ -66,5 +67,31 @@ public class RoomMemory implements RoomDAO {
             }
         }
         return availableRooms;
+    }
+
+    @Override
+    public Set<Room> getAvailableRoomsForRatOwners() {
+        Set<Room> availableRoomsForRatOwners = new HashSet<>();
+        for (Room room:rooms) {
+            List<Student> studentsHousedInRoom = List.copyOf(studentDAO.getAllStudents())
+                    .stream().filter(s -> s.getRoomIdForStudent() == room.getId()).collect(Collectors.toList());
+
+            if(petsDangerousForRats(studentsHousedInRoom)==0){
+                availableRoomsForRatOwners.add(room);
+            }
+        }
+        return availableRoomsForRatOwners;
+    }
+
+
+    public int petsDangerousForRats(List<Student> studentsHousedInRoom){
+        int petsDangerousForRats = 0;
+        for (Student student:studentsHousedInRoom) {
+            if(student.getPetType().equals(PetType.CAT) || student.getPetType().equals(PetType.OWL)){
+                petsDangerousForRats++;
+            }
+        }
+        return petsDangerousForRats;
+
     }
 }

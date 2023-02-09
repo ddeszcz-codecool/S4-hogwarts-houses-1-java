@@ -60,4 +60,11 @@ public class RoomController {
         return "rooms";
     }
 
+    @GetMapping("/rat-owners")
+    public String availableRoomsForRatOwners(Model model) {
+        Set<Room> rooms = roomService.getAvailableRoomsForRatOwners();
+        model.addAttribute("rooms", rooms);
+        return "rooms";
+    }
+
 }
